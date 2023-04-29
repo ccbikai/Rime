@@ -7,7 +7,7 @@
 #
 ---
 name: en_ext
-version: "2023-04-19"
+version: "2023-04-28"
 sort: by_weight
 ...
 # 一些杂项
@@ -707,6 +707,7 @@ IBM	IBM
 International Business Machines	IBM
 International Business Machines	InternationalBusinessMachines
 iCloud	iCloud
+iCloud Mail	iCloudMail
 iCloud Drive	iCloudDrive
 iExplorer	iExplorer
 iFFmpeg	iFFmpeg
@@ -1619,8 +1620,6 @@ Comodo	Comodo
 McAfee	McAfee
 OK	OK
 NG	NG
-TRUE	TRUE
-FALSE	FALSE
 TV	TV
 VTuber	VTuber
 NVMe	NVMe
@@ -1678,6 +1677,7 @@ Mozilla	Mozilla
 Mozilla Firefox	MozillaFirefox
 Apache	Apache
 Steam	Steam
+Steam Deck	SteamDeck
 App	App
 Android	Android
 android	android
@@ -2157,3 +2157,24 @@ Screen Studio	ScreenStudio
 Norah	Norah
 floccus	floccus
 Wappalyzer	Wappalyzer
+phony	phony
+noop	noop
+Kung Fu	KungFu
+prefixes	prefixes
+suffixes	suffixes
+DeepMind	DeepMind
+Google DeepMind	GoogleDeepMind
+TL;DR	TLDR
+Ant-Man	AntMan
+ungoogled	ungoogled
+ungoogled-chromium	ungoogledchromium
+taxman	taxman
+RouterOS	RouterOS
+Sumatra	Sumatra
+Sumatra PDF	SumatraPDF
+sideload	sideload
+sideloading	sideloading
+misdirection	misdirection
+librime	librime
+JRPG	JRPG
+Japanese Role-Playing Game	JRPG

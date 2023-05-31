@@ -8,13 +8,13 @@
 #
 # 来源：
 # 常见两万词 [20k.txt](https://github.com/first20hours/google-10000-english/)
-# 合并不重复的 1000 多左右 [融合拼音方案](https://github.com/tumuyan/rime-melt) 的英文词库 
+# 合并不重复的 1000 多左右 [融合拼音方案](https://github.com/tumuyan/rime-melt) 的英文词库
 #
 # 注释掉单个字母、绝大部分两个字母的缩写、冷门缩写
 # 转化应当大写的单词
 ---
 name: en
-version: "2023-04-19"
+version: "2023-05-30"
 sort: by_weight
 ...
 # +_+
@@ -522,7 +522,7 @@ Alaskan	Alaskan
 alba	alba
 albania	albania
 Albanian	Albanian
-albany	albany
+Albany	Albany
 albeit	albeit
 Albert	Albert
 Alberta	Alberta
@@ -552,7 +552,7 @@ Alfred	Alfred
 algae	algae
 algebra	algebra
 algebraic	algebraic
-algeria	algeria
+Algeria	Algeria
 algorithm	algorithm
 algorithms	algorithms
 Ali	Ali
@@ -853,7 +853,7 @@ answering	answering
 answers	answers
 ant	ant
 antarctic	antarctic
-antarctica	antarctica
+Antarctica	Antarctica
 ante	ante
 antenna	antenna
 antennas	antennas
@@ -921,7 +921,7 @@ apology	apology
 apoptosis	apoptosis
 apostle	apostle
 apostles	apostles
-App	App
+app	app
 appal	appal
 Appalachian	Appalachian
 apparatus	apparatus
@@ -1048,8 +1048,8 @@ areas	areas
 arena	arena
 Ares	Ares
 arg	arg
-argentina	argentina
-argentine	argentine
+Argentina	Argentina
+Argentine	Argentine
 Argos	Argos
 args	args
 arguably	arguably
@@ -1075,13 +1075,13 @@ Aristotle	Aristotle
 arithmetic	arithmetic
 arizona	arizona
 ark	ark
-arkansas	arkansas
+Arkansas	Arkansas
 arlington	arlington
 arm	arm
 armada	armada
 Armani	Armani
 armed	armed
-armenia	armenia
+Armenia	Armenia
 Armenian	Armenian
 armies	armies
 armor	armor
@@ -1170,8 +1170,8 @@ Ashley	Ashley
 ashore	ashore
 Ashton	Ashton
 # ASI	ASI
-asia	asia
-asian	asian
+Asia	Asia
+Asian	Asian
 Asians	Asians
 aside	aside
 Asin	Asin
@@ -1275,7 +1275,7 @@ Atari	Atari
 ate	ate
 atheist	atheist
 Athena	Athena
-athens	athens
+Athens	Athens
 athlete	athlete
 athletes	athletes
 athletic	athletic
@@ -1346,9 +1346,9 @@ attribution	attribution
 ATV	ATV
 # atx	atx
 # au	au
-auburn	auburn
+Auburn	Auburn
 Auch	Auch
-auckland	auckland
+Auckland	Auckland
 auction	auction
 auctions	auctions
 AUD	AUD
@@ -1880,7 +1880,7 @@ Benz	Benz
 berg	berg
 Bergen	Bergen
 Berger	Berger
-berkeley	berkeley
+Berkeley	Berkeley
 Berkshire	Berkshire
 berlin	berlin
 BerliOS	BerliOS
@@ -5612,7 +5612,7 @@ Djibouti	Djibouti
 # djs	djs
 # dk	dk
 # dl	dl
-dll	dll
+DLL	DLL
 # dlp	dlp
 # dm	dm
 # dma	dma
@@ -7700,6 +7700,7 @@ FTP	FTP
 # fu	fu
 fuck	fuck
 fucked	fucked
+fucker	fucker
 fuckers	fuckers
 # fuckin	fuckin
 fucking	fucking
@@ -8553,9 +8554,9 @@ Harry	Harry
 harry	harry
 harsh	harsh
 hart	hart
-hartford	hartford
+Hartford	Hartford
 Hartley	Hartley
-harvard	harvard
+Harvard	Harvard
 harvest	harvest
 harvested	harvested
 harvesting	harvesting
@@ -12885,7 +12886,7 @@ NYSE	NYSE
 # oa	oa
 Oahu	Oahu
 oak	oak
-oakland	oakland
+Oakland	Oakland
 Oakley	Oakley
 oaks	oaks
 Oakwood	Oakwood
@@ -14525,7 +14526,7 @@ pressure	pressure
 pressures	pressures
 prestige	prestige
 prestigious	prestigious
-preston	preston
+Preston	Preston
 presumably	presumably
 presume	presume
 presumed	presumed
@@ -14571,7 +14572,7 @@ primitive	primitive
 prince	prince
 princes	princes
 princess	princess
-princeton	princeton
+Princeton	Princeton
 principal	principal
 principally	principally
 principals	principals
@@ -17664,7 +17665,7 @@ spreadsheet	spreadsheet
 spreadsheets	spreadsheets
 spring	spring
 springer	springer
-springfield	springfield
+Springfield	Springfield
 springs	springs
 sprinkle	sprinkle
 sprint	sprint
@@ -17760,8 +17761,8 @@ standing	standing
 standings	standings
 standpoint	standpoint
 stands	stands
-stanford	stanford
-stanley	stanley
+Stanford	Stanford
+Stanley	Stanley
 Stanton	Stanton
 staple	staple
 staples	staples
@@ -18475,7 +18476,7 @@ tailor	tailor
 tailored	tailored
 tails	tails
 Taipei	Taipei
-taiwan	taiwan
+Taiwan	Taiwan
 taj	taj
 Tajikistan	Tajikistan
 take	take
@@ -20955,7 +20956,7 @@ York	York
 yorker	yorker
 Yorkshire	Yorkshire
 Yosemite	Yosemite
-# you	you
+you	you
 young	young
 younger	younger
 youngest	youngest

@@ -433,7 +433,7 @@ local function Dec2bin(n)
 end
 
 -- 2/10/16进制互转
-local function system(x, inPuttype, outputtype)
+local function Atoi(x, inPuttype, outputtype)
 	local r
 	if tonumber(inPuttype) == 2 then
 		if tonumber(outputtype) == 10 then -- 2进制-->10进制
@@ -460,15 +460,15 @@ end
 -- 农历16进制数据分解
 local function Analyze(Data)
 	local rtn1, rtn2, rtn3, rtn4
-	rtn1 = system(string.sub(Data, 1, 3), 16, 2)
+	rtn1 = Atoi(string.sub(Data, 1, 3), 16, 2)
 	if string.len(rtn1) < 12 then
 		rtn1 = "0" .. rtn1
 	end
 	rtn2 = string.sub(Data, 4, 4)
-	rtn3 = system(string.sub(Data, 5, 5), 16, 10)
-	rtn4 = system(string.sub(Data, -2, -1), 16, 10)
+	rtn3 = Atoi(string.sub(Data, 5, 5), 16, 10)
+	rtn4 = Atoi(string.sub(Data, -2, -1), 16, 10)
 	if string.len(rtn4) == 3 then
-		rtn4 = "0" .. system(string.sub(Data, -2, -1), 16, 10)
+		rtn4 = "0" .. Atoi(string.sub(Data, -2, -1), 16, 10)
 	end
 	-- string.gsub(rtn1, "^[0]*", "")
 	return { rtn1, rtn2, rtn3, rtn4 }
@@ -549,7 +549,7 @@ local function Date2LunarDate(Gregorian)
 	Month = tonumber(Gregorian.sub(Gregorian, 5, 6))
 	Day = tonumber(Gregorian.sub(Gregorian, 7, 8))
 	if Year > 2100 or Year < 1899 or Month > 12 or Month < 1 or Day < 1 or Day > 31 or string.len(Gregorian) < 8 then
-		return "无效日期"
+		return "无效日期", "无效日期"
 	end
 
 	-- 获取两百年内的农历数据
@@ -621,7 +621,7 @@ local function Date2LunarDate(Gregorian)
 		LunarMonth = cMonName[LMonth]
 	end
 
-	local _nis = tostring(os.date("%Y"))
+	local _nis = tostring(LYear)
 	local _LunarYears = ""
 	for i = 1, _nis:len() do
 		local _ni_digit = tonumber(_nis:sub(i, i))
@@ -642,17 +642,29 @@ local function Date2LunarDate(Gregorian)
 end
 
 -- 农历
+-- 从 lunar: nl 获取农历触发关键字（双拼默认为 lunar）
+-- 从 recognizer/patterns/gregorian_to_lunar 获取第 2 个字符作为公历转农历的触发前缀，默认为 N
 local function translator(input, seg, env)
-	local date1, date2 = Date2LunarDate(os.date("%Y%m%d"))
 	env.lunar_key_word = env.lunar_key_word or
 		(env.engine.schema.config:get_string(env.name_space:gsub('^*', '')) or 'nl')
+	env.gregorian_to_lunar = env.gregorian_to_lunar or
+		(env.engine.schema.config:get_string('recognizer/patterns/gregorian_to_lunar'):sub(2, 2) or 'N')
 	if input == env.lunar_key_word then
-		local lunar_date = Candidate("", seg.start, seg._end, date1, "")
-		lunar_date.quality = 999
-		yield(lunar_date)
+		local date1, date2 = Date2LunarDate(os.date("%Y%m%d"))
 		local lunar_ymd = (Candidate("", seg.start, seg._end, date2, ""))
 		lunar_ymd.quality = 999
 		yield(lunar_ymd)
+		local lunar_date = Candidate("", seg.start, seg._end, date1, "")
+		lunar_date.quality = 999
+		yield(lunar_date)
+	elseif env.gregorian_to_lunar ~= '' and input:sub(1, 1) == env.gregorian_to_lunar then
+		local date1, date2 = Date2LunarDate(input:sub(2))
+		local lunar_ymd = (Candidate("", seg.start, seg._end, date2, ""))
+		lunar_ymd.quality = 999
+		yield(lunar_ymd)
+		local lunar_date = Candidate("", seg.start, seg._end, date1, "")
+		lunar_date.quality = 999
+		yield(lunar_date)
 	end
 end
 

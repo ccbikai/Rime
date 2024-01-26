@@ -158,14 +158,14 @@ liangfen:
   dictionary: liangfen     # 挂载两分词典 liangfen.dict.yaml
   prefix: "u"              # 以 u 开头来反查
   enable_completion: true  # 补全提示
-  # tips: 〔两分〕          # 反查时显示的文字，建议注释掉，否则很多 u 开头的英文单词也会显示这个
+  # tips: 〔两分〕         # 反查时显示的文字，建议注释掉，否则很多 u 开头的英文单词也会显示这个
 
 
 # 自定义短语：custom_phrase.txt
 custom_phrase:
   dictionary: ""
   user_dict: custom_phrase  # 可以修改这里，改成自己的 txt 文件
-  db_class: stabledb
+  db_class: stabledb        # 只读数据库，无法动态调频；设为 tabledb 可以动态调频
   enable_completion: false  # 补全提示
   enable_sentence: false    # 禁止造句
   initial_quality: 99       # custom_phrase 的权重应该比 pinyin 和 melt_eng 大
@@ -203,10 +203,11 @@ punctuator:
 recognizer:
   import_preset: default  # 从 default.yaml 继承通用的
   patterns:  # 再增加方案专有的：
-    punct: "^v([0-9]|10|[A-Za-z]+)$"  # 响应 symbols_v.yaml 的 symbols，用 'v' 替换 '/'
-    reverse_lookup: "^u[a-z]+$"       # 响应两分拼字的反查
-    unicode: "^U[a-f0-9]+"            # 响应 Unicode
-    number: "^R[0-9]+[.]?[0-9]*"      # 响应 number_translator
+    punct: "^v([0-9]|10|[A-Za-z]+)$"    # 响应 symbols_v.yaml 的 symbols，用 'v' 替换 '/'
+    reverse_lookup: "^u[a-z]+$"         # 响应两分拼字的反查
+    unicode: "^U[a-f0-9]+"              # 响应 lua_translator@unicode 脚本将自动获取第 2 个字符作为触发前缀
+    number: "^R[0-9]+[.]?[0-9]*"        # 响应 lua_translator@number_translator 脚本将自动获取第 2 个字符作为触发前缀
+    gregorian_to_lunar: "^N[0-9]{1,8}"  # 响应 lua_translator@lunar 公历转农历，输入 N20240115 得到「二〇二四年腊月初五」，脚本将自动获取第 2 个字符作为触发前缀
 
 
 # 从 default 继承快捷键
